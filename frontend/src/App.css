@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  height: 40em;
+  width: 40em;
+  /* border-style: solid;
+  border-width: medium;
+  border-color: black; */
+  background-color: #703F9A;
+  margin-left: 25em;
+  margin-top: 2em;
+  overflow: auto;
 }
 
 .App-logo {
@@ -35,4 +44,72 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* .centerConsole {
+  background-color: #703F9A;
+  height: 20em;
+  width: 100%
+} */
+
+/* app */
+
+.appH1 {
+  margin-top: 3em;
+  padding-top: 1px;
+}
+
+.appButtonContainerDiv {
+  margin: 16em 3em;
+}
+
+.appSeeBarsButton {
+  margin-top: 3em;
+}
+
+.jumbotron {
+  background-color: #703F9A;
+}
+
+/* login */
+
+.login {
+  text-align: center;
+  height: 40em;
+  width: 40em;
+  /* border-style: solid;
+  border-width: medium;
+  border-color: black; */
+  background-color: #703F9A;
+  margin-left: 25em;
+  margin-top: 2em;
+  overflow: auto;
+}
+
+/* signup */
+
+.signup {
+  text-align: center;
+  height: 40em;
+  width: 40em;
+  /* border-style: solid;
+  border-width: medium;
+  border-color: black; */
+  background-color: #703F9A;
+  margin-left: 25em;
+  margin-top: 2em;
+  overflow: auto;
+}
+
+.seeBars {
+  text-align: center;
+  height: 40em;
+  width: 40em;
+  /* border-style: solid;
+  border-width: medium;
+  border-color: black; */
+  background-color: #703F9A;
+  margin-left: 25em;
+  margin-top: 2em;
+  overflow: auto;
 }
