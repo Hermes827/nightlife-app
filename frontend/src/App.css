@@ -8,7 +8,8 @@
   background-color: #703F9A;
   margin-left: 25em;
   margin-top: 2em;
-  overflow: auto;
+  /* overflow: auto; */
+  overflow: hidden;
 }
 
 .App-logo {
@@ -75,41 +76,70 @@
 
 .login {
   text-align: center;
-  height: 40em;
-  width: 40em;
-  /* border-style: solid;
+  /* height: 40em;
+  width: 40em; */
+  height: 100%;
+  width: 100%;
+  border-style: solid;
   border-width: medium;
-  border-color: black; */
+  border-color: black;
   background-color: #703F9A;
-  margin-left: 25em;
-  margin-top: 2em;
-  overflow: auto;
+  /* margin-left: 25em; */
+  /* margin-top: 2em; */
+  /* overflow: auto; */
+  margin-top: -48.8em;
+  position: relative;
 }
 
 /* signup */
 
 .signup {
   text-align: center;
-  height: 40em;
-  width: 40em;
-  /* border-style: solid;
+  /* height: 40em;
+  width: 40em; */
+  height: 100%;
+  width: 100%;
+  border-style: solid;
   border-width: medium;
-  border-color: black; */
+  border-color: black;
   background-color: #703F9A;
-  margin-left: 25em;
-  margin-top: 2em;
-  overflow: auto;
+  /* margin-left: 25em; */
+  /* margin-top: 2em; */
+  /* overflow: auto; */
+  margin-top: -48.8em;
+  position: relative;
+}
+
+.userpage {
+  text-align: center;
+  /* height: 40em;
+  width: 40em; */
+  height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  background-color: #703F9A;
+  /* margin-left: 25em; */
+  /* margin-top: 2em; */
+  /* overflow: auto; */
+  margin-top: -48.8em;
+  position: relative;
 }
 
 .seeBars {
   text-align: center;
-  height: 40em;
-  width: 40em;
-  /* border-style: solid;
+  /* height: 40em;
+  width: 40em; */
+  height: 100%;
+  width: 100%;
+  border-style: solid;
   border-width: medium;
-  border-color: black; */
+  border-color: black;
   background-color: #703F9A;
-  margin-left: 25em;
-  margin-top: 2em;
-  overflow: auto;
+  /* margin-left: 25em; */
+  /* margin-top: 2em; */
+  /* overflow: auto; */
+  margin-top: -51.70em;
+  position: relative;
 }
