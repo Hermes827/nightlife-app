@@ -12,10 +12,13 @@ class UserPage extends React.Component {
   render(){
   return (
     <div className="userpage">
-
+      welcome to userpage
+      <Link to="/" className="navbar-brand">
+       <Button variant="primary">back</Button>
+     </Link>
     </div>
   );
 }
 }
 
-export default Userpage;
+export default UserPage;

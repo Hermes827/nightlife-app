@@ -10,10 +10,18 @@ import {
 } from "react-router-dom";
 import Login from './components/login.js'
 import Signup from './components/signup.js'
+import Userpage from './components/userPage.js'
 
 class App extends React.Component {
 
-
+loggedIn = () => {
+  if(localStorage.token){
+    console.log(this.props.history)
+    return (
+      <Userpage/>
+    )
+  }
+}
 
   render(){
   return (
@@ -29,13 +37,17 @@ class App extends React.Component {
         </Link>
       </div>
     <Switch>
-    <Route exact path="/login">
+    <Route path="/login">
       <Login/>
     </Route>
     <Route path="/signup">
       <Signup/>
     </Route>
+    <Route path="/userpage">
+      <Userpage/>
+    </Route>
     </Switch>
+    {this.loggedIn()}
     </div>
     </Router>
   );
