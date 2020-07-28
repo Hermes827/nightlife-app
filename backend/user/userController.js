@@ -9,22 +9,32 @@ const fetch = require('node-fetch')
 const cors = require('cors');
 router.use(cors());
 const API_KEY = process.env.API_KEY
+var jwt = require('jsonwebtoken');
+var config = require('../config');
 
 router.get('/getBars', VerifyToken, function (req, res) {
-
-fetch("https://api.yelp.com/v3/businesses/search?latitude=37.786882&longitude=-122.399972&categories=bars", {
-        method: 'GET',
-        headers: {
-    'Authorization': `Bearer ${API_KEY}`
-  },
-})
-.then(response => response.json())
-.then(result => res.status(200).send(result))
-.catch(error => console.log('error', error));
-
+  let token = req.headers['x-access-token']
+  jwt.verify(token, config.secret, function(err, decoded) {
+    if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+    User.findById(decoded.id, function (err, user) {
+  if (err) return res.status(500).send("There was a problem finding the user.");
+  if (!user) return res.status(404).send("No user found.");
+  fetchBars(user.location.coordinates, res)
+    });
+  });
 });
 
-
+function fetchBars(arg1, arg2){
+  fetch(`https://api.yelp.com/v3/businesses/search?latitude=${arg1[1]}&longitude=${arg1[0]}&categories=bars`, {
+          method: 'GET',
+          headers: {
+      'Authorization': `Bearer ${API_KEY}`
+    },
+  })
+  .then(response => response.json())
+  .then(result => arg2.status(200).send(result))
+  .catch(error => console.log('error', error));
+}
 
 // CREATES A NEW USER
 // router.post('/', function (req, res) {
@@ -40,12 +50,12 @@ fetch("https://api.yelp.com/v3/businesses/search?latitude=37.786882&longitude=-1
 // });
 
 // RETURNS ALL THE USERS IN THE DATABASE
-// router.get('/', function (req, res) {
-//     User.find({}, function (err, users) {
-//         if (err) return res.status(500).send("There was a problem finding the users.");
-//         res.status(200).send(users);
-//     });
-// });
+router.get('/', function (req, res) {
+    User.find({}, function (err, users) {
+        if (err) return res.status(500).send("There was a problem finding the users.");
+        res.status(200).send(users);
+    });
+});
 
 // GETS A SINGLE USER FROM THE DATABASE
 // router.get('/:id', function (req, res) {

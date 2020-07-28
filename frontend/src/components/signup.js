@@ -16,8 +16,26 @@ class Signup extends React.Component {
     this.state = {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      userLat: Number,
+      userLong: Number
     }
+  }
+
+  componentDidMount(){
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  }).then((position) => {
+    this.setState({
+      userLat: position.coords.latitude,
+      userLong: position.coords.longitude
+    })
+    console.log(position)
+    // this.createUser(position)
+  })
+  .catch((err) => {
+    console.error(err.message);
+  });
   }
 
 captureText = (e) => {
@@ -30,7 +48,8 @@ onSubmit = (e) => {
   e.preventDefault()
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  var raw = JSON.stringify({"name": this.state.name,"email": this.state.email,"password": this.state.password});
+  var raw = JSON.stringify({"name":this.state.name, "email":this.state.email,
+  "password":this.state.password, "location":{"type":"Point","coordinates":[this.state.userLong,this.state.userLat]}});
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -68,8 +87,7 @@ deleteToken(){
         <Link to="/" className="navbar-brand">
          <Button variant="primary">back</Button>
        </Link>
-       {console.log(this.props.history)}
-       {console.log(localStorage.token)}
+       {console.log(this.state)}
        <button onClick={this.deleteToken}>delete token</button>
     </div>
   );
