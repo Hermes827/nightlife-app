@@ -47,7 +47,7 @@ loggedIn = () => {
       <Userpage/>
     </Route>
     </Switch>
-    {this.loggedIn()}
+
     </div>
     </Router>
   );
