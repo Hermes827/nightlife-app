@@ -143,3 +143,20 @@
   margin-top: -51.70em;
   position: relative;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 0.5em 4.8em;
+  background-color: grey;
+}

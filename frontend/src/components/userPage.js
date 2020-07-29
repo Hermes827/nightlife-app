@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
+import Navbar from 'react-bootstrap/Navbar'
 
 class UserPage extends React.Component {
 
@@ -32,7 +33,14 @@ fetch("http://localhost:4000/users/getbars", requestOptions)
   render(){
   return (
     <div className="userpage">
-      welcome to userpage
+
+    <ul>
+    <li><a>find bars</a></li>
+    <li><a>settings</a></li>
+    <li><a>log out</a></li>
+    </ul>
+
+      <h1>welcome to userpage</h1>
       <Link to="/" className="navbar-brand">
        <Button variant="primary">back</Button>
      </Link>
